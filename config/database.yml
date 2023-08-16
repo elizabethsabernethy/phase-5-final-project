@@ -80,7 +80,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
- <<: *default
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  username: phase_5_final_project_backend
-  password: <%= ENV["PHASE_5_FINAL_PROJECT_BACKEND_DATABASE_PASSWORD"] %>
+  # username: phase_5_final_project_backend
+  # password: <%= ENV["PHASE_5_FINAL_PROJECT_BACKEND_DATABASE_PASSWORD"] %>
