@@ -4,13 +4,15 @@ function NavBar(){
 
     const linkStyles = {
         display: "inline-block",
-        width: "70px",
+        width: "100px",
         padding: "12px",
         margin: "0 6px 6px",
         color: "antiquewhite",
+        borderRadius: "5px",
         textAlign: "center",
+        fontSize: "20px",
         textDecoration:"none",
-        background: "rgb(2, 54, 59)"
+        background: "rgb(145, 8, 8)"
       };
 
     return(
@@ -44,6 +46,12 @@ function NavBar(){
             style={linkStyles}
             >
                 Massages
+            </NavLink>
+            <NavLink
+            to="/book"
+            style={linkStyles}
+            >
+                Book Appt
             </NavLink>
         </div>
     )

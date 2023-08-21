@@ -3,9 +3,6 @@ function Home() {
     return (
      <div className="parent-container">
         <div className="header">
-            <img src="https://clipart-library.com/image_gallery2/Ruby-Stone-Free-PNG-Image.png"
-            width="100px"
-            height="50px"></img>
            <h1>Welcome to Ruby Spa</h1> 
         </div>
         <div>
