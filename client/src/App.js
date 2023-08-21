@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import NavBar from "./NavBar";
+import StylistMenu from "./StylistsMenu";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
         <Switch>
           <Route path="/">
             <Home/>
+            <StylistMenu/>
           </Route>
         </Switch>
       </div>
