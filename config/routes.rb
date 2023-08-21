@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :stylists
+  resources :stylists, only: [:index]
 end
