@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
+import Stylist from "./Stylist";
 
 function StylistMenu() {
 
     const [stylists, setStylists] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:3000/stylists')
+        fetch('/stylists')
         .then((resp) => resp.json())
         .then((stylists) => setStylists(stylists))
     },[])
     
     return (
      <div className="parent-container">
-        console.log({stylists})
+        <h1>Stylist Menu</h1>
+        {stylists.map((stylist) => {
+            return <Stylist key={stylist.id} stylist={stylist}/>
+        })}
      </div>
     );
   }

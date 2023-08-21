@@ -8,10 +8,6 @@ class StylistsController < ApplicationController
 
     private
 
-    def stylist_params
-        params.permit(:name, :job_title)
-    end
-
     def render_not_found_response
         render json: { error: "Stylist not found" }, status: :not_found
     end
