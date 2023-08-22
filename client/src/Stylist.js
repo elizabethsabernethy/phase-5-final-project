@@ -1,9 +1,9 @@
 function Stylist({stylist}) {
     
     return (
-     <div className="parent-container">
-        <h1>{stylist.name}</h1>
-        <h2>{stylist.job_title}</h2>
+     <div className="stylist-container">
+        <h3>{stylist.name}</h3>
+        <h5>{stylist.job_title}</h5>
      </div>
     );
   }

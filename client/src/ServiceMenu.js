@@ -15,7 +15,7 @@ function ServiceMenu({category}) {
     
     return (
      <div className="parent-container">
-        <h1>Service Menu</h1>
+        <h1 className="menu-header">Service Menu</h1>
         {filteredServices.map((service) => {
             return <Service key={service.id} service={service}/>
         })}

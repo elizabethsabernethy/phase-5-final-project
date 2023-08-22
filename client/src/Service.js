@@ -1,10 +1,10 @@
 function Service({service}) {
     
     return (
-     <div className="parent-container">
-        <h1>{service.name}</h1>
-        <h2>Duration: {service.duration}</h2>
-        <h2>Price: {service.price}</h2>
+     <div className="service-container">
+        <h3>{service.name}</h3>
+        <h5>Duration: {service.duration}</h5>
+        <h5>Price: {service.price}</h5>
      </div>
     );
   }

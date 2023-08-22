@@ -6,8 +6,15 @@ function Hair() {
     return (
      <div className="parent-container">
         <h1 className="page-header">~ Hair ~</h1>
-        <StylistMenu job={"Hairdresser"}/>
-        <ServiceMenu category={"Hair"}/>
+        <div className="menu-container">
+            <div className="stylist-menu">
+               <StylistMenu job={"Hairdresser"}/> 
+            </div>
+            <div className="service-menu">
+                <ServiceMenu category={"Hair"}/>
+            </div>
+        </div>
+        
      </div>
     );
   }
