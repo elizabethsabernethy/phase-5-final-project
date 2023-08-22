@@ -1,3 +1,4 @@
+import ServiceMenu from "./ServiceMenu";
 import StylistMenu from "./StylistsMenu";
 
 function Hair() {
@@ -6,6 +7,7 @@ function Hair() {
      <div className="parent-container">
         <h1 className="page-header">~ Hair ~</h1>
         <StylistMenu job={"Hairdresser"}/>
+        <ServiceMenu category={"Hair"}/>
      </div>
     );
   }
