@@ -2,6 +2,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import NavBar from "./NavBar";
 import Hair from "./Hair";
+import Nails from "./Nails";
+import Facials from "./Facials";
+import Massage from "./Massage";
 
 function App() {
 
@@ -15,6 +18,15 @@ function App() {
         </div>
         <NavBar/>
         <Switch>
+        <Route path="/facials">
+            <Facials/>
+          </Route>
+        <Route path="/massage">
+            <Massage/>
+          </Route>
+        <Route path="/nails">
+            <Nails/>
+          </Route>
         <Route path="/hair">
             <Hair/>
           </Route>

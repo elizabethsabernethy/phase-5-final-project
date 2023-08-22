@@ -42,10 +42,10 @@ function NavBar(){
                 Facials
             </NavLink>
             <NavLink
-            to="/massages"
+            to="/massage"
             style={linkStyles}
             >
-                Massages
+                Massage
             </NavLink>
             <NavLink
             to="/book"
