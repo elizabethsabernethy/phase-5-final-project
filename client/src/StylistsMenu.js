@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Stylist from "./Stylist";
 
-function StylistMenu() {
+function StylistMenu({job}) {
 
     const [stylists, setStylists] = useState([])
 
@@ -10,11 +10,13 @@ function StylistMenu() {
         .then((resp) => resp.json())
         .then((stylists) => setStylists(stylists))
     },[])
+
+    const filteredStylists = stylists.filter((stylist)=> stylist.job_title === job)
     
     return (
      <div className="parent-container">
         <h1>Stylist Menu</h1>
-        {stylists.map((stylist) => {
+        {filteredStylists.map((stylist) => {
             return <Stylist key={stylist.id} stylist={stylist}/>
         })}
      </div>

@@ -4,6 +4,10 @@ body {
   background-color: antiquewhite;
 }
 
+.header > h1{
+  font-family:'Lucida Handwriting', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -78,4 +82,12 @@ img {
   background-color: rgb(145, 8, 8);
   color: antiquewhite;
   padding-bottom: 15px;
+}
+
+.page-header{
+  background-color: rgb(145, 8, 8);
+  height: 100px;
+  padding-top: 30px;
+  color: antiquewhite;
+  font-family:'Lucida Handwriting', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
