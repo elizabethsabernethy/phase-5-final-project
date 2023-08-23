@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 
-const UserContext = React.createContext();
+const StylistServicesContext = React.createContext();
 
-function UserProvider({ children }) {
+function StylistServicesProvider({ children }) {
 
     const [stylistServices, setStylistServices] = useState([]);
 
@@ -14,7 +14,7 @@ function UserProvider({ children }) {
 
     // the value prop of the provider will be our context data
     // this value will be available to child components of this provider
-    return <UserContext.Provider value={{stylistServices}}>{children}</UserContext.Provider>;
+    return <StylistServicesContext.Provider value={{stylistServices}}>{children}</StylistServicesContext.Provider>;
   }
   
-  export { UserContext, UserProvider };
+  export { StylistServicesContext, StylistServicesProvider};

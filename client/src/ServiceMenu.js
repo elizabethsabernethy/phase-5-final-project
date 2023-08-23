@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import Service from "./Service";
-import { UserContext } from "./context/StylistServicesContext";
+import { StylistServicesContext} from "./context/StylistServicesContext";
 
 function ServiceMenu({category}) {
 
-    const {stylistServices} = useContext(UserContext);
+    const {stylistServices} = useContext(StylistServicesContext);
     const [services, setServices] = useState([])
+
+    console.log(stylistServices)
 
     useEffect(()=>{
         fetch('/services')

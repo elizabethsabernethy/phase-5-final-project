@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { UserProvider } from './context/StylistServicesContext';
+import { StylistServicesProvider } from './context/StylistServicesContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UserProvider>
+    <StylistServicesProvider>
       <App />
-    </UserProvider>
+    </StylistServicesProvider>
   </React.StrictMode>
 );
 
