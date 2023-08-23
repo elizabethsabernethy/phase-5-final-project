@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { StylistServicesContext} from "./context/StylistServicesContext";
+
 function Service({service}) {
+
+   const {stylistServices} = useContext(StylistServicesContext);
+
+   console.log(stylistServices)
     
     return (
      <div className="service-container">
