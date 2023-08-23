@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function LoginForm({setUser}){
 
-    // const navigate = useNavigate()
+    const history = useHistory()
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ function LoginForm({setUser}){
         setIsLoading(false);
         if (resp.ok) {
           resp.json().then((user) => setUser(user));
-        //   navigate('/profile')
+         history.push('/profile')
         } else {
           resp.json().then((err) => alert(err.error));
         }

@@ -1,4 +1,4 @@
 class ClientSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :password_digest
+  attributes :id, :name, :username
   # has_many :appointments
 end
