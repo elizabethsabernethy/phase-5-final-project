@@ -6,6 +6,7 @@ function Service({service}) {
    const {stylistServices} = useContext(StylistServicesContext);
 
    console.log(stylistServices)
+   console.log(service.id)
     
     return (
      <div className="service-container">
