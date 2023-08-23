@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function SignupForm({setUser}){
     const [username, setUsername] = useState("");
@@ -7,6 +8,7 @@ function SignupForm({setUser}){
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     //single object state for all parts above
+    const history = useHistory();
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -26,8 +28,10 @@ function SignupForm({setUser}){
         setIsLoading(false);
         if (r.ok) {
           r.json().then((user) => setUser(user));
+          alert("Account successfully created")
+            history.push("/profile")
         } else {
-          r.json().then((err) => {console.log(err)});
+          r.json().then((err) => {err.errors.map((error)=>alert(error))});
         }
       });
     }

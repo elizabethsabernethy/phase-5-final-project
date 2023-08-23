@@ -7,6 +7,7 @@ import Facials from "./Facials";
 import Massage from "./Massage";
 import BookAppt from "./BookAppt";
 import LoginOrSignupPage from "./LoginOrSignup";
+import Profile from "./Profile";
 
 function App() {
 
@@ -20,6 +21,9 @@ function App() {
         </div>
         <NavBar/>
         <Switch>
+        <Route path="/profile">
+            <Profile/>
+          </Route>
         <Route path="/login">
             <LoginOrSignupPage/>
           </Route>
