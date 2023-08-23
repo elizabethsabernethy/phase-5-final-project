@@ -130,7 +130,7 @@ img {
   margin-top: 10px;
 }
 
-.services-button{
+.button{
   background-color: antiquewhite;
   color:rgb(145, 8, 8);
   border: 0;
@@ -141,7 +141,23 @@ img {
   margin-top: 10px;
 }
 
-.services-button:hover {
+.button:hover {
   background-color: brown;
   color: antiquewhite;
+}
+
+.service-pop-up, .stylist-pop-up{
+  background-color: rgb(255, 250, 244);
+  width: 200px;
+  padding: 5px;
+  text-align: center;
+  border: 5px solid rgb(145, 8, 8);
+}
+
+.service-pop-up{
+  margin-right: 15px;
+}
+
+.stylist-pop-up{
+  margin-left: 15px;
 }
