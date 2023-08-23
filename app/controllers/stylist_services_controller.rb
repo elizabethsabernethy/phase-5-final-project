@@ -1,7 +1,7 @@
 class StylistServicesController < ApplicationController
 
     def index
-        stylist_service = Stylist_Service.all
-        render json: stylist_service
+        stylist_services = StylistService.all
+        render json: stylist_services
     end
 end

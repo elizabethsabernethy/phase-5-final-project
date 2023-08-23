@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Service from "./Service";
+import { UserContext } from "./context/StylistServicesContext";
 
 function ServiceMenu({category}) {
 
+    const {stylistServices} = useContext(UserContext);
     const [services, setServices] = useState([])
 
     useEffect(()=>{
