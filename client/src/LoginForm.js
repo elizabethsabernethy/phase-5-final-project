@@ -32,7 +32,7 @@ function LoginForm({setUser}){
     return(
         <div>
             <h1 className="name-container">Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
             type="text"
@@ -49,7 +49,7 @@ function LoginForm({setUser}){
             value={password}
             onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
+        <button className="form-button" type="submit">{isLoading ? "Loading..." : "Login"}</button>
     </form>
         </div>
     

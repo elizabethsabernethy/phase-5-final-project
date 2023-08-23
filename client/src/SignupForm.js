@@ -71,7 +71,7 @@ function SignupForm({setUser}){
                     onChange={(e) => setPasswordConfirmation(e.target.value)}
                     autoComplete="current-password"
                 />
-                <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+                <button className="form-button" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
             </form>
             </div>
         </div>

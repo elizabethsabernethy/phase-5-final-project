@@ -161,3 +161,61 @@ img {
 .stylist-pop-up{
   margin-left: 15px;
 }
+
+.form{
+  display: flex;
+  flex-flow: row wrap;
+  align-content:center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form > input, .form > select{
+  margin: 15px;
+}
+
+.has-account{
+  text-align: center;
+  height: 50px;
+}
+
+.name-container{
+  text-decoration: underline;
+  text-align: center;
+}
+
+.form-button{
+  background-color: rgb(145, 8, 8);
+  color: antiquewhite;
+  border: 0;
+  border-radius: 2px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.form-button:hover {
+  background-color: antiquewhite;
+  color:rgb(145, 8, 8);
+  border: 2px solid rgb(145, 8, 8);
+}
+
+#signup-form{
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  padding: 10px;
+  }
+  
+  #signup-form > label{
+    margin: 10px;
+  }
+  
+  #signup-form > input{
+    width: 250px;
+  }

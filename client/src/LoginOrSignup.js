@@ -15,7 +15,7 @@ function LoginOrSignupPage(){
           <LoginForm setUser={setUser} />
           <p className="has-account">
             Don't have an account? &nbsp;
-            <button onClick={() => setShowLogin(false)}>
+            <button className="form-button" onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
           </p>
@@ -25,7 +25,7 @@ function LoginOrSignupPage(){
           <SignupForm setUser={setUser}  />
           <p className="has-account">
             Already have an account? &nbsp;
-            <button onClick={() => setShowLogin(true)}>
+            <button className="form-button" onClick={() => setShowLogin(true)}>
               Log In
             </button>
           </p>
