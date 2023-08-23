@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 function LoginForm({setUser}){
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ function LoginForm({setUser}){
         setIsLoading(false);
         if (resp.ok) {
           resp.json().then((user) => setUser(user));
-          navigate('/profile')
+        //   navigate('/profile')
         } else {
           resp.json().then((err) => alert(err.error));
         }

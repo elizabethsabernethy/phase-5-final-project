@@ -5,6 +5,7 @@ import Hair from "./Hair";
 import Nails from "./Nails";
 import Facials from "./Facials";
 import Massage from "./Massage";
+import BookAppt from "./BookAppt";
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
         </div>
         <NavBar/>
         <Switch>
+        <Route path="/book">
+            <BookAppt/>
+          </Route>
         <Route path="/facials">
             <Facials/>
           </Route>
