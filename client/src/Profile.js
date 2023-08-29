@@ -1,18 +1,21 @@
 import { useContext } from "react";
 import { UserContext } from "./context/UserContext";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Profile(){
 
-    const {user} = useContext(UserContext);
+    const {user, handleLogout} = useContext(UserContext);
+    const history = useHistory();
 
     return(
             <div id="user-container">
                 {user.id? 
                     <div className="profile">
                         <h2>Hi, {user.name}</h2>
+                        <button onClick={handleLogout} className="form-button">Logout</button>
                     </div> : 
                     <div>
-                        <h2>Please login to view profile</h2>
+                        {history.push('/')}
                     </div>}
             </div>
     )
