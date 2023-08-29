@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import {NavLink} from "react-router-dom";
+import { UserContext } from "./context/UserContext";
 
 function NavBar(){
+
+    const {user} = useContext(UserContext);
 
     const linkStyles = {
         display: "inline-block",
@@ -53,6 +57,11 @@ function NavBar(){
             >
                 Book Appt
             </NavLink>
+            {user.id? 
+            <NavLink to="/profile"
+            style={linkStyles}>
+                Profile
+            </NavLink> : null}
         </div>
     )
 }
