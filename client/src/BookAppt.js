@@ -17,7 +17,7 @@ function BookAppt(){
  const [time, setTime] = useState('8:00')
  const [date, setDate] = useState(new Date())
  const [stylist, setStylist] = useState(stylists[0])
- const [service, setService] = useState(stylists[0].services[0])
+ const [service, setService] = useState(services[0])
  const [category, setCategory] = useState('')
 
  const [hideStylist, setHideStylist] = useState(true)
@@ -57,8 +57,8 @@ function BookAppt(){
     setHideSubmit(false)
  }
 
- function handleSubmit(){
-    console.log("hey")
+ function handleSubmit(e){
+    e.preventDefault();
  }
 
   return (
@@ -66,7 +66,7 @@ function BookAppt(){
         {user.id? (
           <div>
           <h2>Book Appointment</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e)=> handleSubmit(e)}>
                 <div>
                 <label htmlFor="category">Category</label>
                     <select id="category" name="category" defaultValue={category} onChange={(e) => selectCategory(e)}>
