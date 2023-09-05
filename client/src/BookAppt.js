@@ -24,6 +24,7 @@ function BookAppt(){
  const [hideService, setHideService] = useState(true)
  const [hideDate, setHideDate] = useState(true)
  const [hideTime, setHideTime] = useState(true)
+ const [hideSubmit, setHideSubmit] = useState(true)
 
  const filteredStylists = stylists.filter((stylist)=> stylist.job_title === category)
 
@@ -51,12 +52,21 @@ function BookAppt(){
     setHideTime(false)
  }
 
+ function selectTime(value){
+    setTime(value)
+    setHideSubmit(false)
+ }
+
+ function handleSubmit(){
+    console.log("hey")
+ }
+
   return (
       <div>
         {user.id? (
           <div>
           <h2>Book Appointment</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                 <label htmlFor="category">Category</label>
                     <select id="category" name="category" defaultValue={category} onChange={(e) => selectCategory(e)}>
@@ -81,7 +91,6 @@ function BookAppt(){
                     <select id="service" name="service" defaultValue={service} onChange={(e) => selectService(e)}>
                     <option>---</option>
                         {stylist.services.map((service)=>{
-                            console.log(service)
                             return <option key={service.id} value={service.id}>{service.name}</option>
                         })}
                     </select>
@@ -90,8 +99,9 @@ function BookAppt(){
                     <DatePicker onChange={(value)=> selectDate(value)} value={date} required={true} minDate={new Date()}/>
                 </div>
                 <div hidden={hideTime}>
-                    <TimePicker onChange={(value)=> setTime(value)} value={time} disableClock={true} required={true}/>
+                    <TimePicker onChange={(value)=> selectTime(value)} value={time} disableClock={true} required={true}/>
                 </div>
+                <button hidden={hideSubmit} type="submit">{"Book Appointment"}</button>
             </form>
             </div>
         ):(
