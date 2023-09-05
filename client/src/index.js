@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/UserContext';
+import { ServiceProvider } from './context/ServiceContext';
+import { StylistProvider } from './context/StylistContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <App />
+      <ServiceProvider>
+        <StylistProvider>
+          <App />
+        </StylistProvider>
+      </ServiceProvider>
     </UserProvider>
   </React.StrictMode>
 );

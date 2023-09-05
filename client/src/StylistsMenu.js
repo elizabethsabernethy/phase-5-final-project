@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import Stylist from "./Stylist";
+import { StylistContext } from "./context/StylistContext";
 
 function StylistMenu({job}) {
 
-    const [stylists, setStylists] = useState([])
-
-    useEffect(()=>{
-        fetch('/stylists')
-        .then((resp) => resp.json())
-        .then((stylists) => setStylists(stylists))
-    },[])
-
+    const {stylists} = useContext(StylistContext);
     const filteredStylists = stylists.filter((stylist)=> stylist.job_title === job)
     
     return (
