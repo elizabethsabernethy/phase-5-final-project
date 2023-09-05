@@ -43,7 +43,8 @@ function BookAppt(){
  }
 
  function selectService(e){
-    setService(e.target.value)
+    const selected = services.filter((service)=> (service.id).toString() === (e.target.value))
+    selected.map((service)=> setService(service))
     setHideDate(false)
  }
 
@@ -59,6 +60,19 @@ function BookAppt(){
 
  function handleSubmit(e){
     e.preventDefault();
+    fetch(`/appointments`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ stylist_id: stylist.id, client_id: user.id, service_id: service, date, time }),
+      }).then((resp) => {
+        if (resp.ok) {
+          resp.json().then((data) => console.log(data));
+        } else {
+          resp.json().then((err) => console.log((err)));
+        }
+      });
  }
 
   return (
