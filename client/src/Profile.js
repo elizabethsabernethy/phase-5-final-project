@@ -16,10 +16,10 @@ function Profile({onEditAppointment}){
     }
 
     function editAppointment(appointment){
-        {console.log(appointment)}
         onEditAppointment(appointment)
-        history.push(`/profile/${user.id}/appointments/${appointment.id}/edit`)
+        history.push(`profile/${user.id}/appointments/${appointment.id}/edit`)
     }
+    // /profile/${user.id}/appointments/${appointment.id}
 
     function deleteAppointment(){
         console.log("delete appointment")

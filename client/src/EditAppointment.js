@@ -31,6 +31,8 @@ function EditAppointment({appointment}){
     //   });
     }
 
+    {console.log(appointment)}
+
     return(
         <div>
           {user.id? 

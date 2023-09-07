@@ -29,12 +29,13 @@ function App() {
         </div>
         <NavBar/>
         <Switch>
+        <Route path="/profile/:id/appointments/:appointment_id/edit">
+          {/* profile/:client_id/appointments/:appointment_id */}
+            <EditAppointment appointment={appointment}/>
+        </Route>
         <Route path="/profile">
             <Profile onEditAppointment={onEditAppointment}/>
           </Route>
-        <Route path="/profile/:id/appointments/:id/edit">
-            <EditAppointment appointment={appointment}/>
-        </Route>
         <Route path="/login">
             <LoginOrSignupPage/>
           </Route>
