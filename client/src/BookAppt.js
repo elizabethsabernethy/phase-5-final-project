@@ -91,7 +91,7 @@ function addAppointment(appointment){
   return (
       <div>
         {user.id? (
-          <div>
+          <div id="booking-div">
           <h2>Book Appointment</h2>
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <div>
@@ -128,7 +128,7 @@ function addAppointment(appointment){
                 <div hidden={hideTime}>
                     <TimePicker onChange={(value)=> selectTime(value)} value={time} disableClock={true} required={true}/>
                 </div>
-                <button hidden={hideSubmit} type="submit">{"Book Appointment"}</button>
+                <button id="book-button" hidden={hideSubmit} type="submit">{"Book Appointment"}</button>
             </form>
             </div>
         ):(

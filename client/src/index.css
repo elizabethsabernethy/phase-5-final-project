@@ -185,7 +185,7 @@ img {
   text-align: center;
 }
 
-.form-button{
+.form-button, #book-button{
   background-color: rgb(145, 8, 8);
   color: antiquewhite;
   border: 0;
@@ -196,7 +196,7 @@ img {
   margin-top: 10px;
 }
 
-.form-button:hover {
+.form-button:hover, #book-button:hover {
   background-color: antiquewhite;
   color:rgb(145, 8, 8);
   border: 2px solid rgb(145, 8, 8);
@@ -238,4 +238,21 @@ img {
 
 .profile{
   text-align: center;
+}
+
+#booking-div{
+  text-align: center;
+  font-size: larger;
+  text-decoration: underline;
+}
+
+#category, #stylist, #service{
+  margin-left: 15px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 30px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  background-color: rgb(251, 244, 236);
+  color: rgb(145, 8, 8);;
 }
