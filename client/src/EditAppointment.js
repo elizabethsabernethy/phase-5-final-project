@@ -12,7 +12,7 @@ import { StylistContext } from "./context/StylistContext";
 
 function EditAppointment({appointment}){
 
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
     const history = useHistory();
 
     const {services} = useContext(ServiceContext);
@@ -27,8 +27,6 @@ function EditAppointment({appointment}){
     const [stylist, setStylist] = useState(defaultStylist)
     const [service, setService] = useState(defaultService)
     const [category, setCategory] = useState(defaultCategory)
-
-    console.log(appointment.form_time)
    
     const filteredStylists = stylists.filter((stylist)=> stylist.job_title === category)
    
@@ -53,29 +51,63 @@ function EditAppointment({appointment}){
     function selectTime(value){
        setTime(value)
     }
+
+    function onEditAppointment(editedAppointment){
+        const updatedAppointments = user.appointments.map((appointment) => {
+          if (appointment.id === editedAppointment.id) {
+            return editedAppointment;
+          } else {
+            return appointment;
+          }
+        });
+        const updatedUser = {
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          appointments: [...updatedAppointments],
+        }
+        setUser(updatedUser)
+      
+        // const museumOfNewPainting = museums.find((museum)=>{
+        //   return museum.id === editedPainting.museum_id
+        // })
+      
+        // const paintings = museumOfNewPainting.paintings.filter((painting)=>{
+        //   return painting.id !== editedPainting.id
+        // })
+      
+        // museumOfNewPainting.paintings = paintings
+        // museumOfNewPainting.paintings.push(editedPainting)
+      
+        // const artist = museumOfNewPainting.artists.find((artist)=>{
+        //   return artist.id === editedPainting.artist_id
+        // })
+        // if(artist === undefined){
+        //   museumOfNewPainting.artists.push(user)
+        // }
+      }
   
     function handleSave(e) {
       e.preventDefault();
-      console.log(date, time, service, stylist)
-    //   fetch(`/profile/${user.id}/appointments/${appointment.id}/edit`, {
-    //     method: "PATCH",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ 
-    //         date_format: date,
-    //         service_id: service,
-    //         stylist_id: stylist,
-    //         time_format: time
-    //     }),
-    //   }).then((resp) => {
-    //     if (resp.ok) {
-    //       resp.json().then((data) => onEditPainting(data));
-    //       navigate(`/profile/${user.id}/paintings`)
-    //     } else {
-    //       resp.json().then((err) => alert(err.error));
-    //     }
-    //   });
+      fetch(`/profile/${user.id}/appointments/${appointment.id}/edit`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+            date_format: date,
+            service_id: service,
+            stylist_id: stylist,
+            time_format: time
+        }),
+      }).then((resp) => {
+        if (resp.ok) {
+          resp.json().then((data) => onEditAppointment(data));
+          history.push(`/profile`)
+        } else {
+          resp.json().then((err) => alert(err.error));
+        }
+      });
     }
 
     return(

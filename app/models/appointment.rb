@@ -9,14 +9,14 @@ class Appointment < ApplicationRecord
     validates :date, presence: true
     validates :time, presence: true
 
-    validate :date_check
+    # validate :date_check
 
-    def date_check
-        app = Appointment.find_by(stylist_id: self.stylist_id, date: self.date, time: self.time)
-        if app
-            errors.add(:time, message:"not available on this date with this provider")
-        end
-    end
+    # def date_check
+    #     app = Appointment.find_by(stylist_id: self.stylist_id, date: self.date, time: self.time)
+    #     if app
+    #         errors.add(:time, message:"not available on this date with this provider")
+    #     end
+    # end
 
     def time_format
         self.time.strftime("%l:%M %p").strip
