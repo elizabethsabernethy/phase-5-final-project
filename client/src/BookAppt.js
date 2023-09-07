@@ -70,7 +70,7 @@ function BookAppt(){
         if (resp.ok) {
           resp.json().then((data) => console.log(data));
         } else {
-          resp.json().then((err) => console.log((err)));
+          resp.json().then((err) => ((err.error.map((error)=> alert(error)))));
         }
       });
  }

@@ -21,4 +21,8 @@ class Appointment < ApplicationRecord
     def time_format
         self.time.strftime("%l:%M %p").strip
     end
+
+    def date_format
+        self.date.strftime("%B %e, %Y").strip
+    end
 end

@@ -219,3 +219,23 @@ img {
   #signup-form > input{
     width: 250px;
   }
+
+#appointment{
+  background-color: rgb(145, 8, 8);
+  color: antiquewhite;
+  padding: 5px;
+  margin: 15px;
+  width: 500px;
+  text-align: center;
+}
+
+#appointments{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.profile{
+  text-align: center;
+}
