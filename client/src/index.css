@@ -193,7 +193,7 @@ img {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: large;
   width: 200px;
-  margin-top: 10px;
+  margin: 15px;
 }
 
 .form-button:hover, #book-button:hover {
@@ -255,4 +255,20 @@ img {
   font-size: medium;
   background-color: rgb(251, 244, 236);
   color: rgb(145, 8, 8);;
+}
+
+.app-button{
+  color: rgb(145, 8, 8);
+  background-color: antiquewhite;
+  border: 0;
+  border-radius: 2px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  width: 200px;
+  margin: 10px;
+}
+
+.app-button:hover{
+  font-size: medium;
+  font-family:'Lucida Handwriting', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }

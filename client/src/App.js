@@ -8,8 +8,16 @@ import Massage from "./Massage";
 import BookAppt from "./BookAppt";
 import LoginOrSignupPage from "./LoginOrSignup";
 import Profile from "./Profile";
+import EditAppointment from "./EditAppointment";
+import { useState } from "react";
 
 function App() {
+
+  const[appointment, setAppointment] = useState({})
+
+  function onEditAppointment(appointment){
+    setAppointment(appointment)
+  }
 
   return (
     <BrowserRouter>
@@ -22,8 +30,11 @@ function App() {
         <NavBar/>
         <Switch>
         <Route path="/profile">
-            <Profile/>
+            <Profile onEditAppointment={onEditAppointment}/>
           </Route>
+        <Route path="/profile/:id/appointments/:id/edit">
+            <EditAppointment appointment={appointment}/>
+        </Route>
         <Route path="/login">
             <LoginOrSignupPage/>
           </Route>
