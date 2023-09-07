@@ -126,7 +126,7 @@ function addAppointment(appointment){
                     <DatePicker onChange={(value)=> selectDate(value)} value={date} required={true} minDate={new Date()}/>
                 </div>
                 <div hidden={hideTime}>
-                    <TimePicker onChange={(value)=> selectTime(value)} value={time} disableClock={true} required={true}/>
+                    <TimePicker onChange={(value)=> selectTime(value)} value={time} disableClock={true} required={true} minTime="8:00" maxTime="20:00"/>
                 </div>
                 <button id="book-button" hidden={hideSubmit} type="submit">{"Book Appointment"}</button>
             </form>
