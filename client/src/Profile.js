@@ -19,7 +19,7 @@ function Profile(){
                         <h3>Upcoming Appointments</h3>
                         <div id="appointments">
                             {user.appointments.map((appointment)=>{
-                                return <div id="appointment">
+                                return <div id="appointment" key={appointment.id}>
                                     <h4>{((services.filter((service) => service.id === appointment.service_id))[0].name)} with {((stylists.filter((stylist) => stylist.id === appointment.stylist_id))[0].name)}</h4>
                                     <h4>For {appointment.date_format} at {appointment.time_format}</h4>
                                 </div>

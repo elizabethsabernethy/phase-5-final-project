@@ -28,7 +28,7 @@ function BookAppt(){
 
  const filteredStylists = stylists.filter((stylist)=> stylist.job_title === category)
 
- const {user} = useContext(UserContext);
+ const {user, setUser} = useContext(UserContext);
  const history = useHistory();
 
  function selectStylist(e){
@@ -58,6 +58,17 @@ function BookAppt(){
     setHideSubmit(false)
  }
 
+function addAppointment(appointment){
+    const updatedAppointments = [...user.appointments, appointment]
+    const updatedUser = {
+      id: user.id,
+      name: user.name,
+      username: user.username,
+      appointments: updatedAppointments,
+    }
+    setUser(updatedUser)
+  }
+
  function handleSubmit(e){
     e.preventDefault();
     fetch(`/appointments`, {
@@ -65,10 +76,12 @@ function BookAppt(){
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ stylist_id: stylist.id, client_id: user.id, service_id: service, date, time }),
+        body: JSON.stringify({ stylist_id: stylist.id, client_id: user.id, service_id: service.id, date, time }),
       }).then((resp) => {
         if (resp.ok) {
-          resp.json().then((data) => console.log(data));
+          resp.json().then((data) => addAppointment(data));
+          alert("Appointment has been made!")
+          history.push("/profile")
         } else {
           resp.json().then((err) => ((err.error.map((error)=> alert(error)))));
         }
