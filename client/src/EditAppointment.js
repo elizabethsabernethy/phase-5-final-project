@@ -18,15 +18,17 @@ function EditAppointment({appointment}){
     const {services} = useContext(ServiceContext);
     const {stylists} = useContext(StylistContext);
 
-    const defaultCategory = stylists.filter((stylist)=> stylist.id === appointment.stylist_id)[0].job_title
-
-    console.log(appointment)
+    const defaultStylist = stylists.filter((stylist)=> stylist.id === appointment.stylist_id)[0]
+    const defaultService = defaultStylist.services.filter((service)=> service.id === appointment.service_id)
+    const defaultCategory = defaultStylist.job_title
    
-    const [time, setTime] = useState(appointment.time_format)
-    const [date, setDate] = useState(appointment.date_format)
-    const [stylist, setStylist] = useState(stylists[0])
-    const [service, setService] = useState(services[0])
+    const [time, setTime] = useState(appointment.form_time)
+    const [date, setDate] = useState(appointment.date)
+    const [stylist, setStylist] = useState(defaultStylist)
+    const [service, setService] = useState(defaultService)
     const [category, setCategory] = useState(defaultCategory)
+
+    console.log(appointment.form_time)
    
     const filteredStylists = stylists.filter((stylist)=> stylist.job_title === category)
    
@@ -54,19 +56,19 @@ function EditAppointment({appointment}){
   
     function handleSave(e) {
       e.preventDefault();
-    //   fetch(`/artists/${user.id}/paintings/${painting.id}`, {
+      console.log(date, time, service, stylist)
+    //   fetch(`/profile/${user.id}/appointments/${appointment.id}/edit`, {
     //     method: "PATCH",
     //     headers: {
     //       "Content-Type": "application/json",
     //     },
     //     body: JSON.stringify({ 
-    //         title: paintingTitle,
-    //         img_url: paintingImgUrl,
-    //         description: paintingDescription,
-    //         museum_id: paintingMuseum
+    //         date_format: date,
+    //         service_id: service,
+    //         stylist_id: stylist,
+    //         time_format: time
     //     }),
     //   }).then((resp) => {
-    //     setIsLoading(false);
     //     if (resp.ok) {
     //       resp.json().then((data) => onEditPainting(data));
     //       navigate(`/profile/${user.id}/paintings`)
@@ -96,7 +98,7 @@ function EditAppointment({appointment}){
                 </div>
                 <div>
                     <label htmlFor="stylist">Provider</label>
-                    <select id="stylist" name="stylist" defaultValue={appointment.stylist_id} onChange={(e) => selectStylist(e)}>
+                    <select id="stylist" name="stylist" defaultValue={defaultStylist.id} onChange={(e) => selectStylist(e)}>
                     <option>---</option>
                         {filteredStylists.map((stylist)=>{
                             return <option key={stylist.id} value={stylist.id}>{stylist.name}</option>

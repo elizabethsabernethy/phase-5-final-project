@@ -19,7 +19,6 @@ function Profile({onEditAppointment}){
         onEditAppointment(appointment)
         history.push(`profile/${user.id}/appointments/${appointment.id}/edit`)
     }
-    // /profile/${user.id}/appointments/${appointment.id}
 
     function deleteAppointment(){
         console.log("delete appointment")
@@ -45,7 +44,7 @@ function Profile({onEditAppointment}){
                          </div>
                     </div> : 
                     <div>
-                        {history.push('/')}
+                        <h2>Please login to view Profile</h2>
                     </div>}
             </div>
     )
