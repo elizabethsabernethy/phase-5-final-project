@@ -11,7 +11,7 @@ function Profile({onEditAppointment}){
     const {stylists} = useContext(StylistContext);
     const history = useHistory();
 
-    function handleEdit(){
+    function handleEditProfile(){
         console.log("gonna edit")
     }
 
@@ -20,16 +20,22 @@ function Profile({onEditAppointment}){
         history.push(`profile/${user.id}/appointments/${appointment.id}/edit`)
     }
 
-    function deleteAppointment(deletedAppointment){
-        console.log(deletedAppointment)
-        // const updatedAppointments= user.appointments.filter((appointment) => appointment.id !== deletedAppointment.id);
-        // const updatedUser = {
-        //   id: user.id,
-        //   name: user.name,
-        //   username: user.username,
-        //   appointmentss: [...updatedAppointments]
-        // }
-        // setUser(updatedUser)
+    function deleteAppointment(appointment){
+        fetch(`profile/${user.id}/appointments/${appointment.id}`, {
+            method: "DELETE",
+            })
+              .then(() => onDeleteAppointment(appointment));
+    }
+
+    function onDeleteAppointment(deletedAppointment){
+        const updatedAppointments= user.appointments.filter((appointment) => appointment.id !== deletedAppointment.id);
+        const updatedUser = {
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          appointments: [...updatedAppointments]
+        }
+        setUser(updatedUser)
     }
 
     return(
@@ -37,7 +43,7 @@ function Profile({onEditAppointment}){
                 {user.id? 
                     <div className="profile">
                         <h2>Hi, {user.name}</h2>
-                        <button onClick={handleEdit} className="form-button">Edit Profile</button>
+                        <button onClick={handleEditProfile} className="form-button">Edit Profile</button>
                         <button onClick={handleLogout} className="form-button">Logout</button>
                         <h3>Upcoming Appointments</h3>
                         <div id="appointments">

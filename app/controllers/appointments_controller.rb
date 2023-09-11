@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
     end
 
     def destroy
-        appointment = Appointment.find_by(id: session[:user_id]).appointments.find(params[:id])
+        appointment = Client.find_by(id: session[:user_id]).appointments.find(params[:id])
         appointment.destroy
         head :no_content
     end
