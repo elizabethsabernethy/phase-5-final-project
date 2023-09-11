@@ -27,8 +27,6 @@ function EditAppointment({appointment}){
     const [stylist, setStylist] = useState(defaultStylist)
     const [service, setService] = useState(defaultService)
     const [category, setCategory] = useState(defaultCategory)
-
-    console.log(appointment.form_date)
    
     const filteredStylists = stylists.filter((stylist)=> stylist.job_title === category)
    

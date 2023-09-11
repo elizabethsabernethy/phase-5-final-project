@@ -6,7 +6,7 @@ import { StylistContext } from "./context/StylistContext";
 
 function Profile({onEditAppointment}){
 
-    const {user, handleLogout} = useContext(UserContext);
+    const {user, setUser, handleLogout} = useContext(UserContext);
     const {services} = useContext(ServiceContext);
     const {stylists} = useContext(StylistContext);
     const history = useHistory();
@@ -20,8 +20,16 @@ function Profile({onEditAppointment}){
         history.push(`profile/${user.id}/appointments/${appointment.id}/edit`)
     }
 
-    function deleteAppointment(){
-        console.log("delete appointment")
+    function deleteAppointment(deletedAppointment){
+        console.log(deletedAppointment)
+        // const updatedAppointments= user.appointments.filter((appointment) => appointment.id !== deletedAppointment.id);
+        // const updatedUser = {
+        //   id: user.id,
+        //   name: user.name,
+        //   username: user.username,
+        //   appointmentss: [...updatedAppointments]
+        // }
+        // setUser(updatedUser)
     }
 
     return(
@@ -38,7 +46,7 @@ function Profile({onEditAppointment}){
                                     <h4>{((services.filter((service) => service.id === appointment.service_id))[0].name)} with {((stylists.filter((stylist) => stylist.id === appointment.stylist_id))[0].name)}</h4>
                                     <h4>For {appointment.date_format} at {appointment.time_format}</h4>
                                     <button className="app-button" onClick={()=> editAppointment(appointment)}> Edit Appointment</button>
-                                    <button className="app-button" onClick={deleteAppointment}> Delete Appointment</button>
+                                    <button className="app-button" onClick={()=> deleteAppointment(appointment)}> Delete Appointment</button>
                                 </div>
                             })}
                          </div>
