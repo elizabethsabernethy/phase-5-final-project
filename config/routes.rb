@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :appointments, only:[:index]
+  resources :appointments, only:[:index, :create]
   resources :clients, except: [:index]
   resources :stylist_services, only:[:index]
   resources :services, only: [:index]

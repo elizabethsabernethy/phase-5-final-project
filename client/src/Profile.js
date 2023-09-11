@@ -39,6 +39,16 @@ function Profile({onEditAppointment}){
         setUser(updatedUser)
     }
 
+    function deleteAccount(){
+        fetch(`/profile/${user.id}`, {
+            method: "DELETE",
+            })
+              .then(() => {
+                setUser({})
+                history.push("/logout")
+            });
+    }
+
     return(
             <div id="user-container">
                 {user.id? 
@@ -46,7 +56,7 @@ function Profile({onEditAppointment}){
                         <h2>Hi, {user.name}</h2>
                         <button onClick={handleEditProfile} className="form-button">Edit Profile</button>
                         <button onClick={handleLogout} className="form-button">Logout</button>
-                        <h3>Upcoming Appointments</h3>
+                        <h3>{user.appointments.length > 0? 'Upcoming Appointments' : null}</h3>
                         <div id="appointments">
                             {user.appointments.map((appointment)=>{
                                 return <div id="appointment" key={appointment.id}>
@@ -57,6 +67,7 @@ function Profile({onEditAppointment}){
                                 </div>
                             })}
                          </div>
+                         <button onClick={deleteAccount} className="form-button">Delete Account</button>
                     </div> : 
                     <div>
                         <Logout/>

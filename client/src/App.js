@@ -11,6 +11,7 @@ import Profile from "./Profile";
 import EditAppointment from "./EditAppointment";
 import EditProfile from "./EditProfile";
 import { useState } from "react";
+import Logout from "./Logout";
 
 function App() {
 
@@ -41,6 +42,9 @@ function App() {
           </Route>
         <Route path="/login">
             <LoginOrSignupPage/>
+          </Route>
+          <Route path="/logout">
+            <Logout/>
           </Route>
         <Route path="/book">
             <BookAppt/>
