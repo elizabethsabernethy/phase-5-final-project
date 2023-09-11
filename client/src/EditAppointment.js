@@ -23,10 +23,12 @@ function EditAppointment({appointment}){
     const defaultCategory = defaultStylist.job_title
    
     const [time, setTime] = useState(appointment.form_time)
-    const [date, setDate] = useState(appointment.date)
+    const [date, setDate] = useState(appointment.form_date)
     const [stylist, setStylist] = useState(defaultStylist)
     const [service, setService] = useState(defaultService)
     const [category, setCategory] = useState(defaultCategory)
+
+    console.log(appointment.form_date)
    
     const filteredStylists = stylists.filter((stylist)=> stylist.job_title === category)
    
@@ -67,24 +69,6 @@ function EditAppointment({appointment}){
           appointments: [...updatedAppointments],
         }
         setUser(updatedUser)
-      
-        // const museumOfNewPainting = museums.find((museum)=>{
-        //   return museum.id === editedPainting.museum_id
-        // })
-      
-        // const paintings = museumOfNewPainting.paintings.filter((painting)=>{
-        //   return painting.id !== editedPainting.id
-        // })
-      
-        // museumOfNewPainting.paintings = paintings
-        // museumOfNewPainting.paintings.push(editedPainting)
-      
-        // const artist = museumOfNewPainting.artists.find((artist)=>{
-        //   return artist.id === editedPainting.artist_id
-        // })
-        // if(artist === undefined){
-        //   museumOfNewPainting.artists.push(user)
-        // }
       }
   
     function handleSave(e) {
@@ -95,10 +79,10 @@ function EditAppointment({appointment}){
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
-            date_format: date,
-            service_id: service,
-            stylist_id: stylist,
-            time_format: time
+            date: date,
+            service_id: service.id,
+            stylist_id: stylist.id,
+            time: time
         }),
       }).then((resp) => {
         if (resp.ok) {
@@ -147,7 +131,7 @@ function EditAppointment({appointment}){
                     </select>
                 </div>
                 <div>
-                    <DatePicker onChange={(value)=> selectDate(value)} value={date} required={true} minDate={new Date()}/>
+                    <DatePicker onChange={(value)=> selectDate(value)} value={date} required={true}/>
                 </div>
                 <div>
                     <TimePicker onChange={(value)=> selectTime(value)} value={time} disableClock={true} required={true} minTime="8:00" maxTime="20:00"/>

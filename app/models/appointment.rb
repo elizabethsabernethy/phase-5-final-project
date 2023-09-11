@@ -29,4 +29,8 @@ class Appointment < ApplicationRecord
     def date_format
         self.date.strftime("%B %e, %Y").strip
     end
+
+    def form_date
+        self.date.strftime("%Y/%m/%d").strip
+    end
 end
