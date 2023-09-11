@@ -7,7 +7,6 @@ function SignupForm({setUser}){
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    //single object state for all parts above
     const history = useHistory();
   
     function handleSubmit(e) {

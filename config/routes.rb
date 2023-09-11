@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 post "/signup", to: "clients#create"
 get "/me", to: "clients#show"
 get "/profile", to: "clients#show"
+patch"/profile/:id/edit", to: "clients#update"
+delete"/profile/:id", to: "clients#destroy"
 patch "/profile/:id/appointments/:id/edit", to: "appointments#update"
 delete "/profile/:id/appointments/:id", to: "appointments#destroy"
 

@@ -9,6 +9,7 @@ import BookAppt from "./BookAppt";
 import LoginOrSignupPage from "./LoginOrSignup";
 import Profile from "./Profile";
 import EditAppointment from "./EditAppointment";
+import EditProfile from "./EditProfile";
 import { useState } from "react";
 
 function App() {
@@ -29,8 +30,10 @@ function App() {
         </div>
         <NavBar/>
         <Switch>
+        <Route path="/profile/:id/edit">
+            <EditProfile/>
+        </Route>
         <Route path="/profile/:id/appointments/:appointment_id/edit">
-          {/* profile/:client_id/appointments/:appointment_id */}
             <EditAppointment appointment={appointment}/>
         </Route>
         <Route path="/profile">

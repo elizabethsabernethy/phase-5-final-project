@@ -13,7 +13,7 @@ function Profile({onEditAppointment}){
     const history = useHistory();
 
     function handleEditProfile(){
-        console.log("gonna edit")
+        history.push(`profile/${user.id}/edit`)
     }
 
     function editAppointment(appointment){
