@@ -194,6 +194,7 @@ img {
   font-size: large;
   width: 200px;
   margin: 15px;
+  text-align: center;
 }
 
 .form-button:hover, #book-button:hover {
@@ -202,7 +203,7 @@ img {
   border: 2px solid rgb(145, 8, 8);
 }
 
-#signup-form{
+#signup-form, #edit-form{
   display: flex;
   flex-flow: column wrap;
   align-content: center;
@@ -210,14 +211,26 @@ img {
   justify-content: center;
   font-weight: 400;
   padding: 10px;
+  text-align: center;
   }
   
-  #signup-form > label{
+  #signup-form > label, #edit-form > label{
     margin: 10px;
   }
   
-  #signup-form > input{
+  #signup-form > input, #edit-form > label{
     width: 250px;
+  }
+
+  #edit-form, #password-form{
+    border: 5px solid rgb(145, 8, 8);
+    width: 500px;
+    margin: auto
+  }
+
+  .edit-form-div{
+    text-align: center;
+    margin: 10px;
   }
 
 #appointment{

@@ -4,7 +4,7 @@ import { UserContext } from "./context/UserContext";
 
 function EditProfile(){
 
-      const {user} = useContext(UserContext)
+      const {user, setUser} = useContext(UserContext)
       const [username, setUsername] = useState(user.username);
       const [name, setName] = useState(user.name);
       const [password, setPassword] = useState("");
@@ -12,30 +12,69 @@ function EditProfile(){
       const history = useHistory();
       const [passwordChange, setPasswordChange] = useState(true)
     
-      function handleSubmit(e) {
+      function handleProfileSubmit(e) {
         e.preventDefault();
-        // setIsLoading(true);
-        // fetch("/signup", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //       name,
-        //     username,
-        //     password,
-        //     password_confirmation: passwordConfirmation
-        //   }),
-        // }).then((r) => {
-        //   setIsLoading(false);
-        //   if (r.ok) {
-        //     r.json().then((user) => setUser(user));
-        //     alert("Account successfully created")
-        //       history.push("/profile")
-        //   } else {
-        //     r.json().then((err) => {err.errors.map((error)=>alert(error))});
-        //   }
-        // });
+        fetch(`/profile/${user.id}/edit`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            username: username
+          }),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((data) => updateProfile(data));
+            alert("Account successfully updated")
+              history.push("/profile")
+          } else {
+            r.json().then((err) => err.error.map((error)=> alert(error)));
+          }
+        });
+      }
+
+      function updateProfile(newUser){
+        const updatedUser = {
+          id: user.id,
+          name: newUser.name,
+          username: newUser.username,
+          appointments: user.appointments,
+        }
+        setUser(updatedUser)
+      }
+
+      function updatePassword(newUser){
+        const updatedUser = {
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          appointments: user.appointments,
+          password_diget: newUser.password
+        }
+        setUser(updatedUser)
+      }
+
+      function handlePasswordSubmit(e){
+        e.preventDefault();
+        fetch(`/profile/${user.id}/edit`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            password: password,
+            password_confirmation: passwordConfirmation
+          }),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((data) => updatePassword(data));
+            alert("Password successfully updated")
+              history.push("/profile")
+          } else {
+            r.json().then((err) => err.error.map((error)=> alert(error)));
+          }
+        });
       }
   
       return (
@@ -44,7 +83,7 @@ function EditProfile(){
              <div> 
               <h1 className="name-container">Edit Profile</h1>
               <div id="signup-page">
-                  <form id="signup-form" onSubmit={handleSubmit}>
+                  <form id="edit-form" onSubmit={handleProfileSubmit}>
                   <label htmlFor="name">Name</label>
                   <input
                       type="text"
@@ -63,25 +102,37 @@ function EditProfile(){
                   />
                   <button className="form-button" type="submit">Update Profile</button>
               </form>
-              <button className="form-button" onClick={() => setPasswordChange(!passwordChange)}>Change Password</button>
-              <form hidden={passwordChange}>
-              <label htmlFor="password">Password</label>
-                  <input
+              <div className="edit-form-div">
+              <button className="form-button" onClick={() => setPasswordChange(!passwordChange)}>{passwordChange? "Change Password" : "Don't Change Password"}</button>
+              </div>
+              <form id="password-form" hidden={passwordChange} onSubmit={handlePasswordSubmit}>
+                <div className="edit-form-div">
+                  <label htmlFor="password">New Password</label>
+                </div>
+                  <div className="edit-form-div">
+                    <input
                       type="password"
                       id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       autoComplete="current-password"
                   />
-                  <label htmlFor="password">Password Confirmation</label>
-                  <input
+                  </div>
+                  <div className="edit-form-div">
+                    <label htmlFor="password">Confirm New Password</label>
+                  </div>
+                  <div className="edit-form-div">
+                    <input
                       type="password"
                       id="password_confirmation"
                       value={passwordConfirmation}
                       onChange={(e) => setPasswordConfirmation(e.target.value)}
                       autoComplete="current-password"
                   />
-                  <button className="form-button" type="submit">Update Password</button>
+                  </div>
+                  <div className="edit-form-div">
+                    <button className="form-button" type="submit">Update Password</button>
+                  </div>
               </form>
               </div>
               </div>: 

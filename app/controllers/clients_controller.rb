@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
     def update
         client = Client.find(params[:id])
         client.update!(client_params)
-        render json: client, status: :updated
+        render json: client, status: :accepted
     end
 
     def destroy
