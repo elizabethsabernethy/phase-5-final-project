@@ -3,6 +3,7 @@ import { UserContext } from "./context/UserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { ServiceContext } from "./context/ServiceContext";
 import { StylistContext } from "./context/StylistContext";
+import Logout from "./Logout";
 
 function Profile({onEditAppointment}){
 
@@ -58,7 +59,7 @@ function Profile({onEditAppointment}){
                          </div>
                     </div> : 
                     <div>
-                        <h2>Please login to view Profile</h2>
+                        <Logout/>
                     </div>}
             </div>
     )
