@@ -7,7 +7,6 @@ import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import DatePicker from "react-date-picker";
 import TimePicker from "react-time-picker";
-import { ServiceContext } from "./context/ServiceContext";
 import { StylistContext } from "./context/StylistContext";
 
 function EditAppointment({appointment}){
