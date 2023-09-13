@@ -1,4 +1,4 @@
-import { useContext} from "react";
+import { useContext, useState} from "react";
 import { UserContext } from "./context/UserContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { ServiceContext } from "./context/ServiceContext";
@@ -11,6 +11,8 @@ function Profile({onEditAppointment}){
     const {services} = useContext(ServiceContext);
     const {stylists} = useContext(StylistContext);
     const history = useHistory();
+
+    const[hideDelete, setHideDelete] = useState(false)
 
     function handleEditProfile(){
         history.push(`profile/${user.id}/edit`)
@@ -49,11 +51,16 @@ function Profile({onEditAppointment}){
             });
     }
 
+    function deleteAlert(){
+        alert("Deleting your account is non-reversible. If you would like to continue please double click 'Continue Account Deletion' button...")
+        setHideDelete(!hideDelete)
+    }
+
     return(
             <div id="user-container">
                 {user.id? 
                     <div className="profile">
-                        <h2>Hi, {user.name}</h2>
+                        <h2 className="name-container">Hi, {user.name}</h2>
                         <button onClick={handleEditProfile} className="form-button">Edit Profile</button>
                         <button onClick={handleLogout} className="form-button">Logout</button>
                         <h3>{user.appointments.length > 0? 'Upcoming Appointments' : null}</h3>
@@ -67,7 +74,8 @@ function Profile({onEditAppointment}){
                                 </div>
                             })}
                          </div>
-                         <button onClick={deleteAccount} className="form-button">Delete Account</button>
+                         <button hidden={hideDelete} onClick={deleteAlert} className="form-button">Delete Account</button>
+                         <button hidden={!hideDelete} onDoubleClick={deleteAccount} className="form-button">Continue Account Deletion</button>
                     </div> : 
                     <div>
                         <Logout/>

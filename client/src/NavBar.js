@@ -51,12 +51,18 @@ function NavBar(){
             >
                 Massage
             </NavLink>
+            {user.id? 
             <NavLink
             to="/book"
             style={linkStyles}
             >
                 Book Appt
-            </NavLink>
+            </NavLink> : <NavLink
+            to="/login"
+            style={linkStyles}
+            >
+                Login
+            </NavLink>}
             {user.id? 
             <NavLink to="/profile"
             style={linkStyles}>

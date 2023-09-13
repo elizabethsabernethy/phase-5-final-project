@@ -183,6 +183,7 @@ img {
 .name-container{
   text-decoration: underline;
   text-align: center;
+  font-family: 'Lucida Handwriting', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .form-button, #book-button{

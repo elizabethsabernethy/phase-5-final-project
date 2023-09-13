@@ -92,7 +92,7 @@ function addAppointment(appointment){
       <div>
         {user.id? (
           <div id="booking-div">
-          <h2>Book Appointment</h2>
+          <h1 className="name-container">Book Appointment</h1>
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <div>
                 <label htmlFor="category">Category</label>

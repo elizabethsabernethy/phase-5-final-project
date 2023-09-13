@@ -13,7 +13,7 @@ function Logout(){
       }, []);
 
   return (
-      <div>
+      <div className="name-container">
         <h1>Thanks for visiting, come back soon!</h1>
       </div>
   );

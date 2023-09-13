@@ -99,7 +99,7 @@ function EditAppointment({appointment}){
           {appointment.id ? 
           <div>
           <h1 className="name-container">Edit Appointment</h1>
-            <form onSubmit={handleSave}>
+            <form id="edit-form" onSubmit={handleSave}>
             <div>
                 <label htmlFor="category">Category</label>
                     <select id="category" name="category" defaultValue={category} onChange={(e) => selectCategory(e)}>

@@ -25,9 +25,14 @@ class ClientsController < ApplicationController
     end
 
     def destroy
-        client = Client.find(params[:id])
-        client.destroy
-        head :no_content
+        user = Client.find_by(id: session[:user_id])
+        if user
+            session.delete :user_id
+            user.destroy
+            head :no_content
+        else
+            render json: {errors: ["Invalid user"]}, status: :unauthorized
+        end
     end
 
     private
