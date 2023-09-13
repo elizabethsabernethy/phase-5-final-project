@@ -40,6 +40,9 @@ function BookAppt(){
  function selectCategory(e){
     setCategory(e.target.value)
     setHideStylist(false)
+    setHideService(true)
+    setHideDate(true)
+    setHideTime(true)
  }
 
  function selectService(e){

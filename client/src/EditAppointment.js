@@ -100,9 +100,10 @@ function EditAppointment({appointment}){
           <div>
           <h1 className="name-container">Edit Appointment</h1>
             <form id="edit-form" onSubmit={handleSave}>
+              <p>If you would like to change your appointment type, please make a new appointment with the correct department.</p>
             <div>
                 <label htmlFor="category">Category</label>
-                    <select id="category" name="category" defaultValue={category} onChange={(e) => selectCategory(e)}>
+                    <select disabled={true} id="category" name="category" defaultValue={category} onChange={(e) => selectCategory(e)}>
                         <option>---</option>
                         <option value={"Hairdresser"}>Hair</option>
                         <option value={"Nail Technician"}>Nails</option>
