@@ -35,6 +35,8 @@ function BookAppt(){
     const selected = stylists.filter((stylist)=> (stylist.id).toString() === (e.target.value))
     selected.map((stylist)=> setStylist(stylist))
     setHideService(false)
+    setHideDate(true)
+    setHideTime(true)
  }
 
  function selectCategory(e){
