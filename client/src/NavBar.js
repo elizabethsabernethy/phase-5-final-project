@@ -51,7 +51,7 @@ function NavBar(){
             >
                 Massage
             </NavLink>
-            {user.id? 
+            {/* {user.id? 
             <NavLink
             to="/book"
             style={linkStyles}
@@ -67,7 +67,7 @@ function NavBar(){
             <NavLink to="/profile"
             style={linkStyles}>
                 Profile
-            </NavLink> : null}
+            </NavLink> : null} */}
         </div>
     )
 }
