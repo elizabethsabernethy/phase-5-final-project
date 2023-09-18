@@ -13,4 +13,4 @@ haircut = Service.create({name: "Haircut", duration: 30, price: 50, category: "H
 sarah = Stylist.create({name: "Sarah Smith", job_title: "Hairdresser"})
 manicure = Service.create({name: "Manicure", duration: 45, price: 60, category: "Nails"})
 anna = Stylist.create({name: "Anna Calloway", job_title: "Nail Technician"})
-stylist_services = Stylist_services.create([{ stylist_id: 1, service_id: 1 }, { stylist_id: 2, service_id: 2 }])
+stylist_services = StylistService.create([{ stylist_id: 1, service_id: 1 }, { stylist_id: 2, service_id: 2 }])
