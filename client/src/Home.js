@@ -26,7 +26,7 @@ function Home() {
             <h3>Phone</h3>
             <h4>1-800-782-9772</h4>
             <h3>Email</h3>
-            <h4>front_desk@ruby_spa.com</h4>
+            <a href="mailto:front_desk@ruby_spa.com">front_desk@ruby_spa.com</a>
             <h3>Location</h3>
             <h4>123 Gem St, Ruby Falls, TN 12345</h4>
             <div>

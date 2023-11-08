@@ -286,3 +286,14 @@ img {
   font-size: medium;
   font-family:'Lucida Handwriting', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+
+a:link{
+  color: rgb(145, 8, 8);
+  font-size:20px;
+  text-decoration: none;
+}
+
+a:hover{
+  color: rgb(204, 15, 15);
+  text-decoration: underline;
+}
