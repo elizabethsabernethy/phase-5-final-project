@@ -7,7 +7,7 @@ This project utilized a React.js frontend to structure a basic react website, as
 The purpose of this website is to act as a site for users to book and manage appointments with providers from the fictional "Ruby Spa". Non-account holders are able to view the homepage, as well as the varying departments of the spa. Each department shows a list of providers, as well as a service menu. Each provider has a button the user can push to show the specific services they offer. Conversley, each service also has a button which displays stylists that can provide that specific service. Through having an account, a user is able to book appointments, edit or delete their respective appointments they have already booked, edit profile information such as their name, username or password, and finally delete their account if they choose.
 
 ## Prerequisites
-- Ruby 2.7.4
+### Ruby 2.7.4
 Verify which version of Ruby you're running by entering this in the terminal:
 ```
 $ ruby -v
@@ -21,7 +21,7 @@ You should also install the latest versions of `bundler` and `rails`:
 $ gem install bundler
 $ gem install rails
 ```
-- NodeJS (v16), and npm
+### NodeJS (v16), and npm
 Verify you are running a recent version of Node with:
 ```
 $ node -v
@@ -36,8 +36,8 @@ You can also update your npm version with:
 ```
 $ npm i -g npm
 ```
-- Postgresql
-# WSL Install
+### Postgresql
+#### WSL Install
 To install Postgres for WSL, run the following commands from your Ubuntu terminal:
 ```
 $ sudo apt update
@@ -65,7 +65,7 @@ $ createuser -sr ian
 ```
 Then enter control + d or type logout to exit.
 
-# Postgresql Installation for OSX
+#### Postgresql Installation for OSX
 To install Postgres for OSX, you can use Homebrew:
 ```
 $ brew install postgresql
