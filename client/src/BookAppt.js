@@ -98,6 +98,7 @@ function addAppointment(appointment){
         {user.id? (
           <div id="booking-div">
           <h1 className="name-container">Book Appointment</h1>
+          <h4 className="note">Ruby Spa has a standard appointment time of 55 minutes.</h4>
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <div>
                 <label htmlFor="category">Category</label>
